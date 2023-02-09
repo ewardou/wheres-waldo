@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyCW45hodUM5B799uWX0PuY7uBC6oQKg_-4',
@@ -12,10 +13,17 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
+const db = getFirestore(app);
 
-const imageRef = ref(storage, 'ps4.png');
-
-export async function getStorageInfo() {
+export async function getImageURL() {
+    const imageRef = ref(storage, 'ps4.png');
     const url = await getDownloadURL(imageRef);
     return url;
+}
+
+export async function getCoordinatesInfo() {
+    const querySnapshot = await getDocs(collection(db, 'coordinates'));
+    querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+    });
 }

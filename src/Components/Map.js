@@ -1,5 +1,5 @@
 import React from 'react';
-import { getStorageInfo } from '../firebase';
+import { getImageURL, getCoordinatesInfo } from '../firebase';
 import { useState, useEffect } from 'react';
 import '../style/Map.css';
 
@@ -11,7 +11,7 @@ function Map() {
 
     useEffect(() => {
         async function updateImage() {
-            const newUrl = await getStorageInfo();
+            const newUrl = await getImageURL();
             setUrl(newUrl);
         }
         updateImage();
