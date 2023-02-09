@@ -13,7 +13,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-const imageRef = ref(storage, 'thehobbit.jpg');
+const imageRef = ref(storage, 'ps4.png');
 
 export async function getStorageInfo() {
     const url = await getDownloadURL(imageRef);

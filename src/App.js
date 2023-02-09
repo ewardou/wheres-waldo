@@ -1,19 +1,10 @@
 import React from 'react';
-import { getStorageInfo } from './firebase';
-import { useState, useEffect } from 'react';
-
+import Map from './Components/Map';
 function App() {
-    const [url, setUrl] = useState('');
-    useEffect(() => {
-        async function updateImage() {
-            const newUrl = await getStorageInfo();
-            setUrl(newUrl);
-        }
-        updateImage();
-    }, []);
     return (
         <div className="App">
-            <img src={url} alt="jk" id="main" />
+            <div style={{ height: '200px', backgroundColor: 'blue' }}>Fill</div>
+            <Map />
         </div>
     );
 }

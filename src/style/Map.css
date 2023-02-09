@@ -1,0 +1,33 @@
+.Map > span {
+    background-color: transparent;
+    border: red solid 2px;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    transform: scale(0);
+    transition: transform 80ms ease-in;
+}
+
+.Map > span.visible {
+    transform: scale(1);
+}
+
+.Map > span > ul {
+    position: relative;
+    right: -55px;
+    padding: 0;
+    width: 60px;
+    top: 0px;
+    margin: 0;
+    background-color: white;
+    text-align: center;
+}
+
+.Map ul li {
+    list-style: none;
+}
+
+.Map li button {
+    width: 100%;
+}
