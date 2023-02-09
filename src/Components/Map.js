@@ -8,6 +8,8 @@ function Map() {
     const [left, setLeft] = useState('');
     const [top, setTop] = useState('');
     const [visible, setVisible] = useState('');
+    const [xCoordinate, setXCoordinate] = useState(0);
+    const [yCoordinate, setYCoordinate] = useState(0);
 
     useEffect(() => {
         async function updateImage() {
@@ -18,9 +20,30 @@ function Map() {
     }, []);
 
     function setCoordinate(e) {
+        const rect = e.target.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        setXCoordinate(x);
+        setYCoordinate(y);
         setLeft(e.pageX - 25);
         setTop(e.pageY - 25);
     }
+
+    async function checkCoordinates(e) {
+        setVisible('');
+        const coordinates = await getCoordinatesInfo(e);
+        if (
+            xCoordinate >= coordinates.initialX &&
+            xCoordinate <= coordinates.finalX &&
+            yCoordinate >= coordinates.initialY &&
+            yCoordinate <= coordinates.finalY
+        ) {
+            console.log(`You have found ${e.target.textContent}`);
+        } else {
+            console.log(`This isn't ${e.target.textContent}`);
+        }
+    }
+
     return (
         <div className="Map">
             {url ? (
@@ -45,13 +68,13 @@ function Map() {
             >
                 <ul>
                     <li>
-                        <button onClick={() => setVisible('')}>Dante</button>
+                        <button onClick={checkCoordinates}>Hunter</button>
                     </li>
                     <li>
-                        <button onClick={() => setVisible('')}>Jin</button>
+                        <button onClick={checkCoordinates}>Jin</button>
                     </li>
                     <li>
-                        <button onClick={() => setVisible('')}>Kratos</button>
+                        <button onClick={checkCoordinates}>Ryu</button>
                     </li>
                 </ul>
             </span>

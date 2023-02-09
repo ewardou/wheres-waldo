@@ -31,3 +31,10 @@
 .Map li button {
     width: 100%;
 }
+
+.Map img {
+    height: 1600px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}

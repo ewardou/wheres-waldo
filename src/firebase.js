@@ -21,9 +21,14 @@ export async function getImageURL() {
     return url;
 }
 
-export async function getCoordinatesInfo() {
+export async function getCoordinatesInfo(e) {
+    const character = e.target.textContent;
     const querySnapshot = await getDocs(collection(db, 'coordinates'));
+    let coordinates;
     querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        if (doc.id === `${character}-position`) {
+            coordinates = doc.data();
+        }
     });
+    return coordinates;
 }
