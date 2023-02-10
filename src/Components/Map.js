@@ -22,8 +22,6 @@ function Map({ setMessage, handleNotification }) {
 
     function setCoordinate(e) {
         const rect = e.target.getBoundingClientRect();
-        console.log(rect.left);
-        console.log(rect.right);
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         setXCoordinate(x);
@@ -35,14 +33,20 @@ function Map({ setMessage, handleNotification }) {
     async function checkCoordinates(e) {
         setVisible('');
         const coordinates = await getCoordinatesInfo(e);
-        if (
+        return (
             xCoordinate >= coordinates.initialX &&
             xCoordinate <= coordinates.finalX &&
             yCoordinate >= coordinates.initialY &&
             yCoordinate <= coordinates.finalY
-        ) {
+        );
+    }
+
+    async function showResults(e) {
+        const charFound = await checkCoordinates(e);
+        if (charFound) {
             setMessage(`You have found ${e.target.textContent}`);
             Marker(left, top, e.target.textContent);
+            e.target.setAttribute('style', 'display:none');
         } else {
             setMessage(`This isn't ${e.target.textContent}`);
         }
@@ -73,13 +77,13 @@ function Map({ setMessage, handleNotification }) {
             >
                 <ul>
                     <li>
-                        <button onClick={checkCoordinates}>Hunter</button>
+                        <button onClick={showResults}>Hunter</button>
                     </li>
                     <li>
-                        <button onClick={checkCoordinates}>Jin</button>
+                        <button onClick={showResults}>Jin</button>
                     </li>
                     <li>
-                        <button onClick={checkCoordinates}>Ryu</button>
+                        <button onClick={showResults}>Ryu</button>
                     </li>
                 </ul>
             </span>
