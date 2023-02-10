@@ -1,0 +1,17 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    width: 100px;
+    height: 40px;
+    left: auto;
+    right: auto;
+    background-color: white;
+    border: 1px solid black;
+}
+.notification.not-found {
+    background-color: red;
+}
+
+.notification.found {
+    background-color: green;
+}

@@ -3,7 +3,7 @@ import { getImageURL, getCoordinatesInfo } from '../firebase';
 import { useState, useEffect } from 'react';
 import '../style/Map.css';
 
-function Map() {
+function Map({ setMessage, handleNotification }) {
     const [url, setUrl] = useState('');
     const [left, setLeft] = useState('');
     const [top, setTop] = useState('');
@@ -38,10 +38,11 @@ function Map() {
             yCoordinate >= coordinates.initialY &&
             yCoordinate <= coordinates.finalY
         ) {
-            console.log(`You have found ${e.target.textContent}`);
+            setMessage(`You have found ${e.target.textContent}`);
         } else {
-            console.log(`This isn't ${e.target.textContent}`);
+            setMessage(`This isn't ${e.target.textContent}`);
         }
+        handleNotification();
     }
 
     return (
