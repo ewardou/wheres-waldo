@@ -1,12 +1,13 @@
 .notification {
     position: fixed;
     top: 20px;
-    width: 100px;
-    height: 40px;
-    left: auto;
-    right: auto;
+    width: 160px;
+    padding: 10px;
+    left: 50%;
     background-color: white;
     border: 1px solid black;
+    transform: translateX(-50%);
+    text-align: center;
 }
 .notification.not-found {
     background-color: red;

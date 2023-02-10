@@ -1,6 +1,7 @@
 import React from 'react';
 import { getImageURL, getCoordinatesInfo } from '../firebase';
 import { useState, useEffect } from 'react';
+import { Marker } from './Marker';
 import '../style/Map.css';
 
 function Map({ setMessage, handleNotification }) {
@@ -21,6 +22,8 @@ function Map({ setMessage, handleNotification }) {
 
     function setCoordinate(e) {
         const rect = e.target.getBoundingClientRect();
+        console.log(rect.left);
+        console.log(rect.right);
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         setXCoordinate(x);
@@ -39,6 +42,7 @@ function Map({ setMessage, handleNotification }) {
             yCoordinate <= coordinates.finalY
         ) {
             setMessage(`You have found ${e.target.textContent}`);
+            Marker(left, top, e.target.textContent);
         } else {
             setMessage(`This isn't ${e.target.textContent}`);
         }

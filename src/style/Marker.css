@@ -1,0 +1,17 @@
+.marker {
+    position: absolute;
+}
+
+.marker img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(154deg)
+        brightness(105%) contrast(102%);
+    height: 50px;
+    width: auto;
+}
+
+.marker p {
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: inset -1px -1px 4px 0px #000000b3;
+}
