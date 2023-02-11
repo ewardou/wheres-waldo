@@ -3,7 +3,12 @@ import { useState, useEffect } from 'react';
 import { getImageURL } from '../firebase';
 import '../style/Characters.css';
 
-export default function Characters({ char1, char2, char3 }) {
+export default function Characters({
+    char1,
+    char2,
+    char3,
+    setStopwatchRunning,
+}) {
     const [urlChar1, setUrlChar1] = useState('');
     const [urlChar2, setUrlChar2] = useState('');
     const [urlChar3, setUrlChar3] = useState('');
@@ -16,6 +21,7 @@ export default function Characters({ char1, char2, char3 }) {
             setUrlChar1(newUrl1);
             setUrlChar2(newUrl2);
             setUrlChar3(newUrl3);
+            setStopwatchRunning(true);
         })();
     }, []);
 

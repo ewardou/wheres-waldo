@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Marker } from './Marker';
 import '../style/Map.css';
 
-function Map({ setMessage, handleNotification }) {
+function Map({ setMessage, handleNotification, increaseCharactersCount }) {
     const [url, setUrl] = useState('');
     const [left, setLeft] = useState('');
     const [top, setTop] = useState('');
@@ -49,6 +49,7 @@ function Map({ setMessage, handleNotification }) {
             Marker(left, top, name);
             e.target.setAttribute('style', 'display:none');
             document.getElementById(name).classList.add('found');
+            increaseCharactersCount();
         } else {
             setMessage(`This isn't ${name}`);
         }
