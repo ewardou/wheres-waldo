@@ -14,7 +14,7 @@ function Map({ setMessage, handleNotification }) {
 
     useEffect(() => {
         async function updateImage() {
-            const newUrl = await getImageURL();
+            const newUrl = await getImageURL('ps4');
             setUrl(newUrl);
         }
         updateImage();
@@ -43,12 +43,14 @@ function Map({ setMessage, handleNotification }) {
 
     async function showResults(e) {
         const charFound = await checkCoordinates(e);
+        const name = e.target.textContent;
         if (charFound) {
-            setMessage(`You have found ${e.target.textContent}`);
-            Marker(left, top, e.target.textContent);
+            setMessage(`You have found ${name}`);
+            Marker(left, top, name);
             e.target.setAttribute('style', 'display:none');
+            document.getElementById(name).classList.add('found');
         } else {
-            setMessage(`This isn't ${e.target.textContent}`);
+            setMessage(`This isn't ${name}`);
         }
         handleNotification();
     }

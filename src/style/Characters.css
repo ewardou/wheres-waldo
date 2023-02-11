@@ -1,0 +1,29 @@
+.characters {
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+}
+.characters img {
+    height: 150px;
+}
+
+.characters p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.characters div {
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    transition-property: background-color outline;
+    transition: 300ms ease-in-out;
+}
+
+.characters div.found {
+    outline: 3px solid rgb(33, 241, 33);
+    background-color: rgb(200, 252, 200);
+    border: 0;
+}

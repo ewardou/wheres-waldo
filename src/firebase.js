@@ -15,8 +15,8 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 const db = getFirestore(app);
 
-export async function getImageURL() {
-    const imageRef = ref(storage, 'ps4.png');
+export async function getImageURL(fileName) {
+    const imageRef = ref(storage, `${fileName}.png`);
     const url = await getDownloadURL(imageRef);
     return url;
 }
