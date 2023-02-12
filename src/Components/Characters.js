@@ -29,7 +29,7 @@ export default function Characters({
 
     return loaded ? (
         <div className="characters">
-            <p>Find this characters: </p>
+            <p>Find these characters: </p>
             <div id={char1}>
                 <img src={urlChar1} alt={char1} />
                 <p>{char1}</p>

@@ -35,6 +35,10 @@
 .Map img {
     height: 1600px;
     width: auto;
-    margin-left: 126.5px;
+    margin: 0 auto;
     display: block;
+}
+
+.Map {
+    background-color: darkgray;
 }
