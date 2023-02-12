@@ -3,6 +3,7 @@ import Map from './Components/Map';
 import Notification from './Components/Notification';
 import Characters from './Components/Characters';
 import Stopwatch from './Components/Stopwatch';
+import Leaderboard from './Components/Leaderboard';
 import { useState } from 'react';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                     </a>
                 </p>
             </footer>
+            <Leaderboard />
         </div>
     );
 }

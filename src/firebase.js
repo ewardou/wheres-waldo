@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyCW45hodUM5B799uWX0PuY7uBC6oQKg_-4',
@@ -31,4 +31,16 @@ export async function getCoordinatesInfo(e) {
         }
     });
     return coordinates;
+}
+
+export async function getLeaderboard() {
+    const querySnapshot = await getDocs(collection(db, 'leaderboard'));
+    return querySnapshot.docs.map((doc) => doc.data());
+}
+
+export async function addScoreToBoard(name, score) {
+    await addDoc(collection(db, 'leaderboard'), {
+        name: name,
+        score: score,
+    });
 }
