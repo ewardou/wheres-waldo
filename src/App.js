@@ -5,6 +5,7 @@ import Characters from './Components/Characters';
 import Stopwatch from './Components/Stopwatch';
 import Leaderboard from './Components/Leaderboard';
 import { useState } from 'react';
+import './style/App.css';
 
 function App() {
     const [message, setMessage] = useState('');
@@ -19,15 +20,15 @@ function App() {
 
     function increaseCharactersCount() {
         if (charactersFound >= 2) {
-            console.log('Game ended');
             setStopwatchRunning(false);
+            document.querySelector('.leaderboard').classList.add('visible');
         }
         setCharactersFound((prev) => prev + 1);
     }
 
     return (
         <div className="App">
-            <header style={{ backgroundColor: 'blue' }}>
+            <header>
                 <Characters
                     char1={'Jin'}
                     char2={'Hunter'}

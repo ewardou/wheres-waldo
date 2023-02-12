@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getLeaderboard, addScoreToBoard } from '../firebase';
+import '../style/Leaderboard.css';
 
 export default function Leaderboard() {
     const [value, setValue] = useState('');
@@ -38,7 +39,7 @@ export default function Leaderboard() {
         updateTable();
     }, []);
     return (
-        <div>
+        <div className="leaderboard">
             <label htmlFor="name">Your name: </label>
             <input
                 type={'text'}

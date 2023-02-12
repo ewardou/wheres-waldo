@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import '../style/Stopwatch.css';
 
 export default function Stopwatch({ stopwatchRunning }) {
     const [time, setTime] = useState(0);

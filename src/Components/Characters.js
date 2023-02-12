@@ -12,6 +12,7 @@ export default function Characters({
     const [urlChar1, setUrlChar1] = useState('');
     const [urlChar2, setUrlChar2] = useState('');
     const [urlChar3, setUrlChar3] = useState('');
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         (async function () {
@@ -21,12 +22,14 @@ export default function Characters({
             setUrlChar1(newUrl1);
             setUrlChar2(newUrl2);
             setUrlChar3(newUrl3);
+            setLoaded(true);
             setStopwatchRunning(true);
         })();
     }, []);
 
-    return (
+    return loaded ? (
         <div className="characters">
+            <p>Find this characters: </p>
             <div id={char1}>
                 <img src={urlChar1} alt={char1} />
                 <p>{char1}</p>
@@ -40,5 +43,5 @@ export default function Characters({
                 <p>{char3}</p>
             </div>
         </div>
-    );
+    ) : null;
 }

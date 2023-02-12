@@ -1,11 +1,11 @@
 .characters {
     text-align: center;
-    padding: 5px;
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 .characters img {
-    height: 150px;
+    height: 130px;
 }
 
 .characters p {
@@ -26,4 +26,10 @@
     outline: 3px solid rgb(33, 241, 33);
     background-color: rgb(200, 252, 200);
     border: 0;
+}
+
+.characters > p {
+    color: white;
+    width: min-content;
+    font-size: 2rem;
 }
