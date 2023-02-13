@@ -1,0 +1,19 @@
+.menu {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.menu img {
+    height: 500px;
+    border-radius: 15px;
+    width: auto;
+    transition: transform 200ms ease-in;
+}
+
+.menu img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px 10px lightblue;
+}
