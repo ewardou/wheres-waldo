@@ -1,6 +1,6 @@
 .Map > span {
     background-color: transparent;
-    border: red solid 2px;
+    border: orange solid 3px;
     box-sizing: border-box;
     height: 50px;
     width: 50px;
@@ -20,7 +20,7 @@
     width: 60px;
     top: 0px;
     margin: 0;
-    background-color: white;
+    /* background-color: white; */
     text-align: center;
 }
 
@@ -30,6 +30,11 @@
 
 .Map li button {
     width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+.Map li button:hover {
+    background-color: rgb(107, 107, 189);
 }
 
 .Map img {

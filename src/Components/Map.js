@@ -46,7 +46,7 @@ function Map({ setMessage, handleNotification, increaseCharactersCount }) {
         const name = e.target.textContent;
         if (charFound) {
             setMessage(`You have found ${name}`);
-            Marker(left, xCoordinate, top, yCoordinate, name);
+            Marker(left, xCoordinate, top, name);
             e.target.setAttribute('style', 'display:none');
             document.getElementById(name).classList.add('found');
             increaseCharactersCount();

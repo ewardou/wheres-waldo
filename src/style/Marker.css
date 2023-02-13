@@ -1,5 +1,8 @@
 .marker {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .marker img {
@@ -11,6 +14,8 @@
 
 .marker p {
     background-color: white;
+    border-radius: 10px;
+    padding: 2px 5px;
     text-align: center;
     font-weight: bold;
     box-shadow: inset -1px -1px 4px 0px #000000b3;

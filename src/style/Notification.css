@@ -3,9 +3,11 @@
     top: 20px;
     width: 160px;
     padding: 10px;
+    font-weight: bold;
     left: 50%;
-    background-color: white;
+    color: white;
     border: 1px solid black;
+    border-radius: 5px;
     transform: translateX(-50%);
     text-align: center;
 }

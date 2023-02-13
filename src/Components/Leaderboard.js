@@ -29,8 +29,10 @@ export default function Leaderboard() {
         setTableContent(array);
     }
 
-    async function buttonHandler() {
+    async function buttonHandler(e) {
+        if (!value) return alert('Please enter a name');
         const score = document.querySelector('.stopwatch').textContent;
+        e.target.setAttribute('disabled', '');
         await addScoreToBoard(value, score);
         updateTable();
     }
@@ -40,23 +42,28 @@ export default function Leaderboard() {
     }, []);
     return (
         <div className="leaderboard">
-            <label htmlFor="name">Your name: </label>
-            <input
-                type={'text'}
-                id="name"
-                onChange={updateValue}
-                value={value}
-            />
-            <button onClick={() => buttonHandler()}>board</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>{tableContent}</tbody>
-            </table>
+            <div>
+                <p>Thank you for playing!</p>
+                <label htmlFor="name">Please enter your name: </label>
+                <input
+                    type={'text'}
+                    id="name"
+                    onChange={updateValue}
+                    value={value}
+                />
+                <button onClick={(e) => buttonHandler(e)}>Submit</button>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>{tableContent}</tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     );
 }
