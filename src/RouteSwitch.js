@@ -5,7 +5,7 @@ import Menu from './Components/Menu';
 
 export const RouteSwitch = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/wheres-waldo">
             <Routes>
                 <Route path="/" element={<Menu />} />
                 <Route path=":console" element={<App />} />
