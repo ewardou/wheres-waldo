@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/wheres-waldo/static/css/main.bcd9fa81.css",
+    "main.js": "/wheres-waldo/static/js/main.b780a56f.js",
+    "index.html": "/wheres-waldo/index.html",
+    "static/media/flag.svg": "/wheres-waldo/static/media/flag.70481dde7262510d81aa402abfa68513.svg",
+    "main.bcd9fa81.css.map": "/wheres-waldo/static/css/main.bcd9fa81.css.map",
+    "main.b780a56f.js.map": "/wheres-waldo/static/js/main.b780a56f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bcd9fa81.css",
+    "static/js/main.b780a56f.js"
+  ]
+}
