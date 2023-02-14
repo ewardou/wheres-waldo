@@ -46,4 +46,12 @@
 
 .Map {
     background-color: darkgray;
+    min-height: 100vh;
+}
+
+.Map p {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 auto;
+    display: block;
 }

@@ -4,7 +4,14 @@ import { useState, useEffect } from 'react';
 import { Marker } from './Marker';
 import '../style/Map.css';
 
-function Map({ setMessage, handleNotification, increaseCharactersCount }) {
+function Map({
+    setMessage,
+    handleNotification,
+    increaseCharactersCount,
+    psConsole,
+    consoleCharacters,
+}) {
+    const [char1, char2, char3] = consoleCharacters;
     const [url, setUrl] = useState('');
     const [left, setLeft] = useState('');
     const [top, setTop] = useState('');
@@ -14,7 +21,7 @@ function Map({ setMessage, handleNotification, increaseCharactersCount }) {
 
     useEffect(() => {
         async function updateImage() {
-            const newUrl = await getImageURL('ps4');
+            const newUrl = await getImageURL(psConsole);
             setUrl(newUrl);
         }
         updateImage();
@@ -80,13 +87,13 @@ function Map({ setMessage, handleNotification, increaseCharactersCount }) {
             >
                 <ul>
                     <li>
-                        <button onClick={showResults}>Hunter</button>
+                        <button onClick={showResults}>{char1}</button>
                     </li>
                     <li>
-                        <button onClick={showResults}>Jin</button>
+                        <button onClick={showResults}>{char2}</button>
                     </li>
                     <li>
-                        <button onClick={showResults}>Ryu</button>
+                        <button onClick={showResults}>{char3}</button>
                     </li>
                 </ul>
             </span>

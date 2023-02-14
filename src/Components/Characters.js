@@ -3,12 +3,8 @@ import { useState, useEffect } from 'react';
 import { getImageURL } from '../firebase';
 import '../style/Characters.css';
 
-export default function Characters({
-    char1,
-    char2,
-    char3,
-    setStopwatchRunning,
-}) {
+export default function Characters({ consoleCharacters, setStopwatchRunning }) {
+    const [char1, char2, char3] = consoleCharacters;
     const [urlChar1, setUrlChar1] = useState('');
     const [urlChar2, setUrlChar2] = useState('');
     const [urlChar3, setUrlChar3] = useState('');
@@ -16,9 +12,9 @@ export default function Characters({
 
     useEffect(() => {
         (async function () {
-            const newUrl1 = await getImageURL(char1.toLowerCase());
-            const newUrl2 = await getImageURL(char2.toLowerCase());
-            const newUrl3 = await getImageURL(char3.toLowerCase());
+            const newUrl1 = await getImageURL(char1);
+            const newUrl2 = await getImageURL(char2);
+            const newUrl3 = await getImageURL(char3);
             setUrlChar1(newUrl1);
             setUrlChar2(newUrl2);
             setUrlChar3(newUrl3);

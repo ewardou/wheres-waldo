@@ -14,7 +14,7 @@
 .leaderboard table {
     display: block;
     margin: 0 auto;
-    height: 250px;
+    height: fit-content;
     width: fit-content;
     text-align: center;
 }

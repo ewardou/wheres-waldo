@@ -7,7 +7,7 @@
     justify-content: space-around;
 }
 .menu img {
-    height: 500px;
+    height: 450px;
     border-radius: 15px;
     width: auto;
     transition: transform 200ms ease-in;
@@ -16,4 +16,16 @@
 .menu img:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 25px 10px lightblue;
+}
+p.menu,
+.menu p {
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+}
+.menu p {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }

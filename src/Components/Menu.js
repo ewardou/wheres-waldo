@@ -19,6 +19,9 @@ export default function Menu() {
 
     return urls ? (
         <div className="menu">
+            <div>
+                <p>Choose a level to play</p>
+            </div>
             <Link to={'ps1'}>
                 <img src={urls.ps1} alt="ps1" />
             </Link>
@@ -33,6 +36,6 @@ export default function Menu() {
             </Link>
         </div>
     ) : (
-        <p>Loading...</p>
+        <p className="menu">Loading...</p>
     );
 }

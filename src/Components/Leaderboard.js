@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getLeaderboard, addScoreToBoard } from '../firebase';
 import '../style/Leaderboard.css';
+import { Link } from 'react-router-dom';
 
 export default function Leaderboard() {
     const [value, setValue] = useState('');
@@ -63,6 +64,17 @@ export default function Leaderboard() {
                         <tbody>{tableContent}</tbody>
                     </table>
                 </div>
+                <Link to="/">
+                    <button
+                        onClick={() => {
+                            document
+                                .querySelectorAll('.marker')
+                                .forEach((mark) => mark.remove());
+                        }}
+                    >
+                        Back to menu
+                    </button>
+                </Link>
             </div>
         </div>
     );

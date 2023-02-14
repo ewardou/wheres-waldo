@@ -6,8 +6,18 @@ import Stopwatch from './Components/Stopwatch';
 import Leaderboard from './Components/Leaderboard';
 import { useState } from 'react';
 import './style/App.css';
+import { useParams } from 'react-router-dom';
+
+const charPerConsole = {
+    ps1: ['Cloud', 'Leon', 'Spike'],
+    ps2: ['Dante', 'Jak', 'Kratos'],
+    ps3: ['Cole', 'Sackboy', 'Ellie'],
+    ps4: ['Jin', 'Hunter', 'Ryu'],
+};
 
 function App() {
+    const { console } = useParams();
+    const consoleCharacters = charPerConsole[console];
     const [message, setMessage] = useState('');
     const [showNotification, setShowNotification] = useState(false);
     const [charactersFound, setCharactersFound] = useState(0);
@@ -30,9 +40,7 @@ function App() {
         <div className="App">
             <header>
                 <Characters
-                    char1={'Jin'}
-                    char2={'Hunter'}
-                    char3={'Ryu'}
+                    consoleCharacters={consoleCharacters}
                     setStopwatchRunning={setStopwatchRunning}
                 />
                 <Stopwatch stopwatchRunning={stopwatchRunning} />
@@ -45,6 +53,8 @@ function App() {
                 setMessage={setMessage}
                 handleNotification={handleNotification}
                 increaseCharactersCount={increaseCharactersCount}
+                psConsole={console}
+                consoleCharacters={consoleCharacters}
             />
             <footer>
                 <p>
